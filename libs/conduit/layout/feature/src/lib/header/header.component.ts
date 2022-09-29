@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
+import { RouterModule } from '@angular/router';
+
 @Component({
     selector: 'conduit-header',
     template: `
@@ -9,7 +11,14 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
                 <ul class="nav navbar-nav pull-xs-right">
                     <li class="nav-item">
                         <!-- Add "active" class when you're on that page" -->
-                        <a class="nav-link active" href="">Home</a>
+                        <a
+                            class="nav-link"
+                            routerLinkActive="active"
+                            [routerLinkActiveOptions]="{ exact: true }"
+                            routerLink="/"
+                        >
+                            Home
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="">
@@ -24,10 +33,24 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Sign in</a>
+                        <a
+                            class="nav-link"
+                            routerLinkActive="active"
+                            [routerLinkActiveOptions]="{ exact: true }"
+                            routerLink="/login"
+                        >
+                            Sign in
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Sign up</a>
+                        <a
+                            class="nav-link"
+                            routerLinkActive="active"
+                            [routerLinkActiveOptions]="{ exact: true }"
+                            routerLink="/register"
+                        >
+                            Sign up
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -35,5 +58,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     `,
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
+    imports: [RouterModule],
 })
 export class HeaderComponent {}

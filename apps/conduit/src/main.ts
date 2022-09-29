@@ -16,6 +16,7 @@ bootstrapApplication(AppComponent, {
                 {
                     path: '',
                     loadComponent: () => import('@nx-conduit/conduit/layout/feature').then((md) => md.LayoutComponent),
+                    loadChildren: () => import('@nx-conduit/conduit/layout/feature').then((m) => m.LayoutRoutes),
                 },
             ])
         ),
